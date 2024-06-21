@@ -11,7 +11,9 @@
 	],
 	"activationEvents": [
 		"onCommand:vsnotes.listNotes",
-		"onView:vsnotes"
+		"onView:vsnotes",
+		"onCommand:vsnotes.renameNode",
+		"onCommand:vsnotes.deleteNode"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -79,6 +81,14 @@
 					"light": "./media/light/sync.svg",
 					"dark": "./media/dark/sync.svg"
 				}
+			},
+			{
+				"command": "vsnotes.renameNote",
+				"title": "Rename Note"
+			},
+			{
+				"command": "vsnotes.deleteNote",
+				"title": "Delete Note"
 			}
 		],
 		"views": {
@@ -104,6 +114,14 @@
 					"command": "vsnotes.refreshVSNotesView",
 					"when": "view == vsnotes",
 					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "vsnotes.renameNote"
+				},
+				{
+					"command": "vsnotes.deleteNote"
 				}
 			]
 		}
